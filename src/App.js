@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Inc_Dec from './pages/inc_dec/Inc_Dec';
+import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Register />} />
           <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
           <Route path='/inc_dec' element={<Inc_Dec />} />
         </Routes>
       </BrowserRouter>

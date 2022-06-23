@@ -20,9 +20,10 @@ export const registerActionCreator = (regiser) => {
     }
 }
 
-export const loginActionCreator = () => {
+export const loginActionCreator = (login_user) => {
     return {
-        type : LOGIN
+        type : LOGIN,
+        payload:login_user
     }
 }
 

@@ -1,10 +1,6 @@
-export const regiser_info = {
-    userName:'',
-    email:'',
-    password:'',
-    confirmPassword:''
-}
 
 export const initialState = 0
 
-    
+export const login_data = {
+    login_info:{}
+}
