@@ -1,5 +1,4 @@
-import { DECREMENT, INCREMENT, LOGIN, LOGOUT, REGISTER } from "../Constants/Constants"
-import { regiser_info } from "../pages/initialState/InitialState"
+import { DECREMENT, INCREMENT, LOGIN, LOGOUT, REGISTER } from "../Constants/constants"
 
 export const incrementActionCreator = () => {
     return {
@@ -13,10 +12,11 @@ export const decrementActionCreator = () => {
     }
 }
 
-export const registerActionCreator = () => {
+export const registerActionCreator = (regiser) => {
+    
     return {
         type : REGISTER,
-        payload:regiser_info
+        payload:regiser
     }
 }
 

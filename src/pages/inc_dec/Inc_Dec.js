@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { decrementActionCreator, incrementActionCreator } from '../../action_creator/ActionCreator';
+import { decrementActionCreator, incrementActionCreator } from '../../action_creator/actionCreator';
 import '../../App.css';
 
 function Inc_Dec() {

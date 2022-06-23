@@ -1,7 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
-import { decrementActionCreator, incrementActionCreator } from './action_creator/ActionCreator';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Inc_Dec from './pages/inc_dec/Inc_Dec';
 import Register from './pages/register/Register';

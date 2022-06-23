@@ -1,7 +1,7 @@
-import { DECREMENT, INCREMENT, LOGIN, LOGOUT, REGISTER } from "../Constants/Constants";
+import { DECREMENT, INCREMENT, LOGIN, LOGOUT, REGISTER } from "../Constants/constants";
 import { initialState } from "../pages/initialState/InitialState";
 
-export const Reducer1 = (state=initialState,action) => {
+export const reducer1 = (state=initialState,action) => {
     let newState = state
     // console.log('inc_dec----------------->',newState)
     switch(action.type){
@@ -12,7 +12,7 @@ export const Reducer1 = (state=initialState,action) => {
            return newState? newState.lenght >= 0 ? newState :newState-1 : newState;
 
         default:
-            return newState.no;
+            return newState;
     }
     
 }

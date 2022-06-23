@@ -1,22 +1,18 @@
-import { DECREMENT, INCREMENT, LOGIN, LOGOUT, REGISTER } from "../Constants/Constants";
-import { regiser_info } from "../pages/initialState/InitialState";
+import { REGISTER } from "../Constants/constants";
 
-export const registerReducer = (state=regiser_info,action) => {
+let initialState = {
+    regi_info:{}
+}
+
+export const registerReducer = (state=initialState,action) => {
     let newState = state
-    // console.log('register------------------->',newState)
     switch(action.type){
-
+        
         case REGISTER:
-            return;
-
-        case LOGIN:
-            return;
-
-        case LOGOUT :
-            return
-
-        default:
-            return newState;
+            return {
+                ...state,
+                regi_info:action.payload
+            };
     }
-    
+    return newState;
 }

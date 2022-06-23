@@ -5,8 +5,6 @@ export const regiser_info = {
     confirmPassword:''
 }
 
-export const initialState = {
-    no:0
-}
+export const initialState = 0
 
     
