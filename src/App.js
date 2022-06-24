@@ -15,12 +15,12 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Protected Component={Home} />} />
-          <Route path='/register' element={<Protected Component={Register} />} />
-          <Route path='/login' element={<Protected Component={Login} />} />
-          <Route path='/inc_dec' element={<Protected Component={Inc_Dec} />} />
-          <Route path='/logout' element={<Protected Component={Logout} />} />
-          <Route path='/table' element={<Protected Component={Table} />} />
+          <Route path="/" element={<Protected Component={Home} />} />
+          <Route path="/register" element={<Protected Component={Register} />} />
+          <Route path="/login" element={<Protected Component={Login} />} />
+          <Route path="/inc_dec" element={<Protected Component={Inc_Dec} />} />
+          <Route path="/logout" element={<Protected Component={Logout} />} />
+          <Route path="/table" element={<Protected Component={Table} />} />
         </Routes>
       </BrowserRouter>
     </div>

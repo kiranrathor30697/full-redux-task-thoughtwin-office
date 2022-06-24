@@ -11,10 +11,13 @@ export default function Logout() {
      
         {
           setTimeout(()=>{
-            localStorage.removeItem('token');
-            alert('Logut Successfully');
-            navigate('/')
-          },2000)
+           let token = localStorage.getItem('token')
+            if(token){
+              alert('Logut Successfully');
+              navigate("/login")
+            }
+           token =  localStorage.removeItem('token');
+          },1000)
         }
       
       <Footer />

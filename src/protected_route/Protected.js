@@ -11,10 +11,7 @@ export default function Protected(props) {
         if(!token){
             navigate('/login')
             alert('Please Login')  
-        }else{
-            navigate('/table')
         }
-        
     }, []);
 
   return (

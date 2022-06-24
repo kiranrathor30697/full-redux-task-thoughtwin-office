@@ -4,6 +4,7 @@ import { loginMiddle } from '../../applyMiddleware/loginMiddle';
 import "../../App.css"
 import Header from '../layout/Header';
 import Footer from '../layout/Footer';
+import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
 
@@ -11,6 +12,7 @@ export const Login = () => {
           userName:'',
           password:""
     })
+    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const handleChange = (e) => {
@@ -26,6 +28,12 @@ export const Login = () => {
           // console.log(e);
           e.preventDefault();
           dispatch(loginMiddle(login_Data))
+          setTimeout(()=>{
+            let token = localStorage.getItem('token')
+            if(token){
+              navigate('/table')
+            }
+          },1000)
       }
 
     return (

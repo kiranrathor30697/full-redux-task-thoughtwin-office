@@ -29,9 +29,6 @@ export default function Register() {
   const registerData = (e) => {
     e.preventDefault();
     dispatch(registerMiddle(regi_data));
-    setTimeout(()=>{
-      navigate('/login')
-    },[2000])
   };
 
   return (

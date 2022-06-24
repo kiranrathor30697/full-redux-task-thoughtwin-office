@@ -7,10 +7,11 @@ export const loginMiddle = (login_Data) => {
   return async(dispatch)=>{
       try {
         const loginApi = await axios.post('http://192.168.1.11:8000/api/user/login',login_Data);
-        console.log(loginApi);
-        console.log(loginApi.data.token);
+        // console.log(loginApi);
+        const token = loginApi.data.data.token
+        // console.log(token)
         if(loginApi.status == 200){
-          localStorage.setItem('token',JSON.stringify(loginApi.data.token))
+          localStorage.setItem('token',JSON.stringify(token))
          }
         dispatch(loginActionCreator(loginApi));
        

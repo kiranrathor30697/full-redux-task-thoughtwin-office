@@ -4,10 +4,12 @@ import Header from "../layout/Header";
 import "../../App.css";
 import { useDispatch, useSelector } from "react-redux";
 import tableMiddle from "../../applyMiddleware/tableMiddle";
+import { useNavigate } from "react-router-dom";
 
 export default function Table() {
   let state = useSelector((state) => state?.getTableReducer?.get_tbl_emp);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const delBtn = (e) => {
       console.log(e)
@@ -20,11 +22,17 @@ export default function Table() {
 
     if (e.target.name == "getData") {
       e.target.remove("button");
-    }else{
-        e.target.style('backgroundColor:red')
     }
-
-    // state = 0 ? e.target.
+    setTimeout(()=>{
+        let token =  localStorage.getItem('token');
+         if(!token){
+           alert('Please Login');
+           navigate("/login")
+         }else{
+           alert('You Already Login');
+           navigate('/table')
+         }
+       },1000)
   };
   console.log(state);
   return (
