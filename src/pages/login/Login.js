@@ -1,75 +1,66 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginMiddle } from '../../applyMiddleware/loginMiddle';
+import "../../App.css"
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
 
-export default class Login extends Component {
+export const Login = () => {
 
-     handleChange = (e) => {
-        console.log(e)
+    const [login_Data,setLogin_Data] = useState({
+          userName:'',
+          password:""
+    })
+    const dispatch = useDispatch()
+
+    const handleChange = (e) => {
+            // console.log(e)
+            const {name,value} = e.target;
+            setLogin_Data({
+                ...login_Data,
+                [name]:value
+        })
+        //  console.log(state)
     }
-    handleSubmit = (e) => {
-        console.log(e)
-    }
-  render() {
+    const  loginForm = (e) => {
+          // console.log(e);
+          e.preventDefault();
+          dispatch(loginMiddle(login_Data))
+      }
+
     return (
-      <div>
-        {/* <form className="border bg-dark w-25 p-4 offset-4 rounded">
-          <input
-            type="text"
-            name="userName"
-            onChange={(e) => {
-              this.handleChange(e);
-            }}
-            className="d-block form-control mb-3"
-            placeholder="Enter user Name"
-          />
-          <input
-            type="password"
-            name="password"
-            onChange={(e) => {
-              this.handleChange(e);
-            }}
-            className="d-block form-control mb-3"
-            placeholder="Enter Password"
-          />
-          <button
-            type="submit"
-            name="submit"
-            onClick={(e) => {
-              this.handleSubmit(e);
-            }}
-            className="btn btn-success"
-          >
-            Register Form
-          </button>
-        </form> */}
-        <form className="bg-secondary p-4 rounded">
-        <h3 className="App mb-3">Register Form</h3>
-        <input
-          type="text"
-          name="userName"
-          className="d-block form-control mb-3"
-          onChange={(e) => {this.handleChange(e)}}
-          placeholder="Enter user Name"
-        />
-    
-        <input
-          type="password"
-          name="password"
-          className="d-block form-control mb-3"
-          onChange={(e)=>{this.handleChange(e)}}
-          placeholder="Enter Password"
-        />
+      <>
+        <Header />
+        <div className='App-header '>
+          <form className="bg-secondary p-4 rounded">
+            <h3 className="App mb-3">Login Form</h3>
+            <input
+              type="text"
+              name="userName"
+              className="d-block form-control mb-3"
+              onChange={(e) => {handleChange(e)}}
+              placeholder="Enter user Name"
+            />
         
-        <button
-          type="submit"
-          className="btn btn-primary"
-          onClick={(e) => {
-            this.registerData(e);
-          }}
-        >
-          Register Form
-        </button>
-      </form>
-      </div>
+            <input
+              type="password"
+              name="password"
+              className="d-block form-control mb-3"
+              onChange={(e)=>{handleChange(e)}}
+              placeholder="Enter Password"
+            />
+            
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={(e) => {loginForm(e)}}
+            >
+              Register Form
+            </button>
+          </form>
+        </div>
+        <Footer />
+      </>
     );
   }
-}
+
