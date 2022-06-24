@@ -33,6 +33,12 @@ export default function Header() {
               </li>
 
               <li className="nav-item">
+                <Link className="nav-link text-white fs-5" to="/table">
+                  Table
+                </Link>
+              </li>
+
+              <li className="nav-item">
                 <Link className="nav-link text-white fs-5" to="/logout">
                   Logout
                 </Link>

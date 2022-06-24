@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { loginActionCreator } from "../action_creator/actionCreator";
 
 export const loginMiddle = (login_Data) => {
@@ -11,8 +11,9 @@ export const loginMiddle = (login_Data) => {
         console.log(loginApi.data.token);
         if(loginApi.status == 200){
           localStorage.setItem('token',JSON.stringify(loginApi.data.token))
-        }
-        dispatch(loginActionCreator(loginApi))
+         }
+        dispatch(loginActionCreator(loginApi));
+       
       } catch (error) {
         console.log(error)
       }

@@ -6,6 +6,7 @@ import Inc_Dec from './pages/inc_dec/Inc_Dec';
 import { Login } from './pages/login/Login';
 import Logout from './pages/logout/Logout';
 import Register from './pages/register/Register';
+import Table from './pages/table/Table';
 import Protected from './protected_route/Protected';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path='/login' element={<Protected Component={Login} />} />
           <Route path='/inc_dec' element={<Protected Component={Inc_Dec} />} />
           <Route path='/logout' element={<Protected Component={Logout} />} />
+          <Route path='/table' element={<Protected Component={Table} />} />
         </Routes>
       </BrowserRouter>
     </div>

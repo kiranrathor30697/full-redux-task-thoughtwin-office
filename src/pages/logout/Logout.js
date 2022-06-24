@@ -1,19 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Footer from '../layout/Footer';
 import Header from '../layout/Header';
 
 export default function Logout() {
+  const navigate = useNavigate();
   return (
     <>
       <Header />
-      <h1 className='App-header'>
+     
         {
           setTimeout(()=>{
-          localStorage.removeItem('token');
-          alert('Logut Successfully');
+            localStorage.removeItem('token');
+            alert('Logut Successfully');
+            navigate('/')
           },2000)
         }
-      </h1>
+      
       <Footer />
     </>
   );

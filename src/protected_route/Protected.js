@@ -9,9 +9,10 @@ export default function Protected(props) {
          const token = localStorage.getItem('token')
         // console.log(token)
         if(!token){
-            navigate('/login')  
+            navigate('/login')
+            alert('Please Login')  
         }else{
-            navigate('/')
+            navigate('/table')
         }
         
     }, []);

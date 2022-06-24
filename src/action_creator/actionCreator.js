@@ -1,4 +1,4 @@
-import { DECREMENT, INCREMENT, LOGIN, LOGOUT, REGISTER } from "../Constants/constants"
+import { DECREMENT, DELETEEMPLOYEES, INCREMENT, LOGIN, LOGOUT, REGISTER, TABLEDATA } from "../Constants/constants"
 
 export const incrementActionCreator = () => {
     return {
@@ -30,5 +30,18 @@ export const loginActionCreator = (login_user) => {
 export const logoutActionCreator = () => {
     return {
         type:LOGOUT
+    }
+}
+
+export const tableActionCreator = (get_tbl) => {
+    return {
+        type:TABLEDATA,
+        payload:get_tbl.data
+    }
+}
+
+export const employDelActionCreator = () => {
+    return {
+        type:DELETEEMPLOYEES
     }
 }
