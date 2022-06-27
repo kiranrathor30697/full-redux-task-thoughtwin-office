@@ -15,12 +15,17 @@ import moment from "moment";
 export default function Table() {
   let state = useSelector((state) => state?.getTableReducer?.get_tbl_emp);
   let updateState = useSelector((state) => state?.updateReducer?.update_data);
-  console.log(updateState);
+  console.log("state",updateState)
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [updateData, setUpdateData] = useState(updateState);
-  // console.log(updateState)
+  const [updateData,setUpdateData] = useState()
+   console.log("updatestate",updateData)
   // console.log(updateState.name)
+
+  useEffect(()=>{
+    setUpdateData(updateState)
+  },[updateState])
+
 
   const delBtn = (e) => {
     // console.log(e.target.value);
@@ -48,17 +53,8 @@ export default function Table() {
         navigate("/table");
       }
     }, 1000);
+
   };
-  // useEffect(()=>{
-  //   setUpdateData({...updateData,
-  //     name:updateState.name,
-  //     email:updateState.email,
-  //     dob:updateState.dob,
-  //     position:updateState.position,
-  //     technologies_known:updateState.technologies_known,
-  //     technologie_type:updateState.technologie_type
-  //   })
-  // },[])
 
   const get_updt_data = (e) => {
     let token = localStorage.getItem("token");
@@ -68,29 +64,24 @@ export default function Table() {
     // console.log(id)
     dispatch(updateMiddle(id, token));
 
-    // setUpdateData({...updateData,
-    //   name:updateState.name,
-    //   email:updateState.email,
-    //   dob:updateState.dob,
-    //   position:updateState.position,
-    //   technologies_known:updateState.technologies_known,
-    //   technologie_type:updateState.technologie_type
-    // })
   };
+
 
   // console.log(updateData.name)
   const update_data = (e) => {
-    console.log(e.target.value);
-  };
+    console.log('update');
+  }
+
 
   const changeData = (e) => {
-    const { name, value } = e.target;
-    console.log(name, value);
+    const {name,value} = e.target
+    console.log(name,value);
     setUpdateData({
       ...updateData,
-      [name]: value,
-    });
-  };
+      [name]:value
+    })
+    
+  }
 
   // console.log(state);
   return (
@@ -206,12 +197,10 @@ export default function Table() {
                     type="text"
                     name="name"
                     className="form-control fs-3 text-center "
-                    value={updateData.name ?? ""}
-                    onChange={(e) => {
-                      changeData(e);
-                    }}
+                    value={updateData?.name ?? ''}
+                    onChange={(e)=>{changeData(e)}}
                   />
-                  {/* {console.log(updateData)} */}
+                  {/* {console.log(updateData?)} */}
                 </div>
 
                 <label className="col-5">Email</label>
@@ -220,10 +209,8 @@ export default function Table() {
                     type="email"
                     name="email"
                     className="form-control fs-3 text-center "
-                    value={updateData.email ?? ""}
-                    onChange={(e) => {
-                      changeData(e);
-                    }}
+                    value={updateData?.email ?? ""}
+                   onChange={(e)=>{changeData(e)}}
                   />
                 </div>
 
@@ -233,10 +220,8 @@ export default function Table() {
                     type="date"
                     name="dob"
                     className="form-control fs-3 text-center "
-                    value={moment(updateData.dob).format("YYYY-MM-DD") ?? ""}
-                    onChange={(e) => {
-                      changeData(e);
-                    }}
+                    value={moment(updateData?.dob).format("YYYY-MM-DD") ?? ""}
+                    onChange={(e)=>{changeData(e)}}
                   />
                 </div>
 
@@ -246,10 +231,8 @@ export default function Table() {
                     type="text"
                     name="postion"
                     className="form-control fs-3 text-center "
-                    value={updateData.position ?? ""}
-                    onChange={(e) => {
-                      changeData(e);
-                    }}
+                    value={updateData?.position ?? ""}
+                    onChange={(e)=>{changeData(e)}}
                   />
                 </div>
 
@@ -259,10 +242,8 @@ export default function Table() {
                     type="text"
                     name="technologies_known"
                     className="form-control fs-3 text-center "
-                    value={updateData.technologies_known ?? ""}
-                    onChange={(e) => {
-                      changeData(e);
-                    }}
+                    value={updateData?.technologies_known ?? ""}
+                    onChange={(e)=>{changeData(e)}}
                   />
                 </div>
 
@@ -271,10 +252,8 @@ export default function Table() {
                   <input
                     name="name"
                     className="form-control fs-3 text-center "
-                    value={updateData.technologie_type ?? ""}
-                    onChange={(e) => {
-                      changeData(e);
-                    }}
+                    value={updateData?.technologie_type ?? ""}
+                    onChange={(e)=>{changeData(e)}}
                   />
                 </div>
               </form>
@@ -287,14 +266,7 @@ export default function Table() {
               >
                 Close
               </button>
-              <button
-                type="button"
-                className="btn btn-primary"
-                value={updateState._id}
-                onClick={(e) => {
-                  update_data(e);
-                }}
-              >
+              <button type="button" className="btn btn-primary" value={updateState._id} onClick={(e)=>{update_data(e)}}>
                 Save changes
               </button>
             </div>
