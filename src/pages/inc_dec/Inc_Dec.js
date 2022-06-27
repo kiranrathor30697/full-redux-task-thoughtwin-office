@@ -9,7 +9,7 @@ import Header from '../layout/Header';
 function Inc_Dec() {
 
   const state = useSelector(state=>state);
-  // console.log(state)
+   console.log(state)
   const dispatch = useDispatch();
   return (
     <div className="">

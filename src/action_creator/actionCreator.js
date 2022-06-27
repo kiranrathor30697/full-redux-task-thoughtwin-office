@@ -1,4 +1,4 @@
-import { DECREMENT, DELETEEMPLOYEES, INCREMENT, LOGIN, LOGOUT, REGISTER, TABLEDATA } from "../Constants/constants"
+import { DECREMENT, DELETEEMPLOYEES, INCREMENT, LOGIN, LOGOUT, REGISTER, TABLEDATA, UPDATEEMPLOYEES } from "../Constants/constants"
 
 export const incrementActionCreator = () => {
     return {
@@ -13,7 +13,6 @@ export const decrementActionCreator = () => {
 }
 
 export const registerActionCreator = (regiser) => {
-    
     return {
         type : REGISTER,
         payload:regiser
@@ -27,12 +26,6 @@ export const loginActionCreator = (login_user) => {
     }
 }
 
-export const logoutActionCreator = () => {
-    return {
-        type:LOGOUT
-    }
-}
-
 export const tableActionCreator = (get_tbl) => {
     return {
         type:TABLEDATA,
@@ -40,8 +33,23 @@ export const tableActionCreator = (get_tbl) => {
     }
 }
 
-export const employDelActionCreator = () => {
+export const employDelActionCreator = (del_data) => {
+    // console.log(del_data)
     return {
-        type:DELETEEMPLOYEES
+        type:DELETEEMPLOYEES,
+        payload:del_data
+    }
+}
+
+export const updateEmpActionCreator = (updt_data) => {
+    return{
+        type:UPDATEEMPLOYEES,
+        payload:updt_data.data
+    }
+}
+
+export const logoutActionCreator = () => {
+    return {
+        type:LOGOUT
     }
 }

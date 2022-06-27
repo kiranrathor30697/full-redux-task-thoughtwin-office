@@ -5,3 +5,4 @@ export const LOGIN = "LOGIN";
 export const LOGOUT = "LOGOUT";
 export const TABLEDATA = "TABLEDATA";
 export const DELETEEMPLOYEES = "DELETEEMPLOYEES";
+export const UPDATEEMPLOYEES = "UPDATEEMPLOYEES";

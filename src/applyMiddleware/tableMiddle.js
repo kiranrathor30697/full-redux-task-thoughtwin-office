@@ -11,7 +11,7 @@ export default function tableMiddle(token) {
                 Authorization:token
               }
           })
-          console.log(tbl)
+          // console.log(tbl)
           await dispatch(tableActionCreator(tbl))
       } catch (error) {
           console.log(error);
