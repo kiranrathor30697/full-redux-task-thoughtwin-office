@@ -1,30 +1,34 @@
-import { Toast } from 'bootstrap';
 import React, { useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer,toast } from 'react-toastify';
 
 export default function Protected(props) {
     const {Component} = props;
     let navigate = useNavigate();
+      
 
     useEffect(() => {
          const token = localStorage.getItem('token')
         // console.log(token)
-        if(!token){
-            navigate('/login')
-            alert('This is public Route, Please Login')  ;
-            <Toast>
-            <Toast.Header>
-              <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-              <strong className="me-auto">Bootstrap</strong>
-              <small>11 mins ago</small>
-            </Toast.Header>
-            <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
-          </Toast>
-        }
+
+        setTimeout(() => {
+          if(!token){ 
+            // alert('This is public Route, Please Login')  ;
+
+            toast.success('This is public Route, Please Login');
+          }
+        }, 1000);
     }, []);
 
+    setTimeout(() => {
+      navigate('/login') 
+    }, 5000);
+
   return (
-    <Component />
+    <>
+      <Component />
+      <ToastContainer  />
+    </>
   );
 }
