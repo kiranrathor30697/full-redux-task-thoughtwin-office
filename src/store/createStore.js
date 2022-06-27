@@ -6,6 +6,7 @@ import { loginReducer } from "../reducers/loginReducer";
 import { getTableReducer } from "../reducers/getTableReducer";
 import { deleteReducer } from "../reducers/deleteReducer";
 import { updateReducer } from "../reducers/updateReducer";
+import { updateEmployeesReducer } from "../reducers/updateEmployeesReducer";
 
 const rootRducer = combineReducers({
     reducer1,
@@ -13,7 +14,8 @@ const rootRducer = combineReducers({
     loginReducer,
     getTableReducer,
     deleteReducer,
-    updateReducer
+    updateReducer,
+    updateEmployeesReducer
 })
 export const store = legacy_createStore(rootRducer,applyMiddleware(thunk))
 //  console.log(store)

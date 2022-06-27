@@ -11,15 +11,16 @@ import { Button } from "bootstrap";
 import { render } from "@testing-library/react";
 import updateMiddle from "../../applyMiddleware/updateMiddle";
 import moment from "moment";
+import updateEmployeesMiddle from "../../applyMiddleware/updateEmployeesMiddle";
 
 export default function Table() {
   let state = useSelector((state) => state?.getTableReducer?.get_tbl_emp);
   let updateState = useSelector((state) => state?.updateReducer?.update_data);
-  console.log("state",updateState)
+  // console.log("state",updateState)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [updateData,setUpdateData] = useState()
-   console.log("updatestate",updateData)
+  //  console.log("updatestate",updateData)
   // console.log(updateState.name)
 
   useEffect(()=>{
@@ -68,14 +69,20 @@ export default function Table() {
 
 
   // console.log(updateData.name)
-  const update_data = (e) => {
-    console.log('update');
+  const update_emp__data = (e) => {
+    // console.log('update');
+    // console.log(e.target.value)
+    let id = e.target.value;
+    let token = localStorage.getItem('token');
+   token = JSON.parse(token)
+    dispatch(updateEmployeesMiddle(id,token,updateData))
+    window.location.reload()
   }
 
 
   const changeData = (e) => {
     const {name,value} = e.target
-    console.log(name,value);
+    // console.log(name,value);
     setUpdateData({
       ...updateData,
       [name]:value
@@ -83,7 +90,9 @@ export default function Table() {
     
   }
 
-  // console.log(state);
+   console.log(updateData?.name);
+   console.log(updateData?.email);
+   console.log(updateData?.technologies_known);
   return (
     <React.Fragment>
       <div style={{ height: "600px !imprtant" }}>
@@ -229,7 +238,7 @@ export default function Table() {
                 <div className="col-7">
                   <input
                     type="text"
-                    name="postion"
+                    name="position"
                     className="form-control fs-3 text-center "
                     value={updateData?.position ?? ""}
                     onChange={(e)=>{changeData(e)}}
@@ -250,7 +259,7 @@ export default function Table() {
                 <label className="col-5">Technologie Type</label>
                 <div className="col-7">
                   <input
-                    name="name"
+                    name="technologie_type"
                     className="form-control fs-3 text-center "
                     value={updateData?.technologie_type ?? ""}
                     onChange={(e)=>{changeData(e)}}
@@ -266,7 +275,7 @@ export default function Table() {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary" value={updateState._id} onClick={(e)=>{update_data(e)}}>
+              <button type="button" className="btn btn-primary" value={updateState._id} onClick={(e)=>{update_emp__data(e)}}>
                 Save changes
               </button>
             </div>

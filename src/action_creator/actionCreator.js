@@ -48,6 +48,13 @@ export const updateEmpActionCreator = (updt_data) => {
     }
 }
 
+export const updateEmployeesActionCreator = (my_emp_updt) => {
+    return{
+        type:UPDATEEMPLOYEES,
+        payload:my_emp_updt.data
+    }
+}
+
 export const logoutActionCreator = () => {
     return {
         type:LOGOUT
