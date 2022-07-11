@@ -14,16 +14,16 @@ export default function Protected(props) {
 
         setTimeout(() => {
           if(!token){ 
-            // alert('This is public Route, Please Login')  ;
-
+             alert('This is public Route, Please Login')  ;
+             navigate('/login')
             toast.success('This is public Route, Please Login');
           }
         }, 1000);
     }, []);
 
-    setTimeout(() => {
-      navigate('/login') 
-    }, 5000);
+    // setTimeout(() => {
+    //   navigate('/login') 
+    // }, 5000);
 
   return (
     <>

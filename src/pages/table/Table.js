@@ -90,9 +90,9 @@ export default function Table() {
     
   }
 
-   console.log(updateData?.name);
-   console.log(updateData?.email);
-   console.log(updateData?.technologies_known);
+  //  console.log(updateData?.name);
+  //  console.log(updateData?.email);
+  //  console.log(updateData?.technologies_known);
   return (
     <React.Fragment>
       <div style={{ height: "600px !imprtant" }}>
